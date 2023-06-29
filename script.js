@@ -10,7 +10,6 @@ async function getMovies(searchTerm) {
   const data = await res.json();
 
   if (data.Response == "True") {
-    console.log(data.Search);
     showMovies(data.Search);
   }
 }
@@ -19,8 +18,11 @@ async function getMovieDetails(movie) {
   const APIURL = `http://www.omdbapi.com/?t=${movie}&page=1&apikey=b3c6988e`;
   const res = await fetch(`${APIURL}`);
   const data = await res.json();
-  console.log(data);
-  main.classList.add("bg-light")
+  //console.log(data);
+
+
+  
+  main.classList.add("bg-light");
   const movieDetail = document.createElement("div");
   movieDetail.classList.add("movie-detail");
   movieDetail.innerHTML = `    <div class = "movie-poster">
@@ -63,8 +65,8 @@ function showMovies(movies) {
 
     movieE1.addEventListener("click", () => {
       main.innerHTML = "";
-      console.log("working");
-      console.log(movie.Title);
+      //console.log("working");
+      //console.log(movie.Title);
       getMovieDetails(movie.Title);
     });
   });
